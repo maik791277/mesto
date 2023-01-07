@@ -6,6 +6,7 @@
     color: #FFFFFF;
     transition: 0.3s;
     border: 0;
+    cursor: pointer;
 }
 
 .popup__apply-button:hover {
