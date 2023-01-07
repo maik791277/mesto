@@ -1,0 +1,19 @@
+.popup__apply-button {
+    max-width: 358px;
+    width: 100%;
+    min-height: 50px;
+    background-color: black;
+    border-radius: 2px;
+    color: #FFFFFF;
+    transition: 0.3s;
+}
+
+.popup__apply-button:hover {
+    opacity: 0.8;
+}
+
+@media all and (min-width: 280px) and (max-width: 600px) {
+    .popup__apply-button {
+        min-height: 48px;
+    }
+}

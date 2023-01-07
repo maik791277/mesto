@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Владислав Потылицын">
+    <title>Mesto</title>
+    <link rel="stylesheet" href="pages/index.css">
+</head>
+
+<body class="body">
+
+    <div class="page">
+
+        <header class="header">
+            <img class="header__logo" src="images/Mesto.svg" alt="Логотип Mesto">
+        </header>
+
+        <main class="content">
+            <section class="profile">
+                <img class="profile__avatar" src="./images/image.png" alt="Аватарка">
+                <div class="profile__info">
+                    <div class="profile__info-content">
+                        <h1 class="profile__name">Жак-Ив Кусто</h1>
+                        <p class="profile__job">Исследователь океана</p>
+                    </div>
+                    <button class="profile__edit-button"></button>
+                </div>
+                <button class="profile__add-button"></button>
+            </section>
+
+            <section class="card-grid">
+                <div class="card">
+                    <img class="card__image" src="./images/Kaliningrad.jpg" alt="Калининград">
+                    <div class="card__info">
+                        <h2 class="card__title">Калининград</h2>
+                        <button class="card__like"></button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card__image" src="./images/Amsterdam.jpg" alt="Амстердам">
+                    <div class="card__info">
+                        <h2 class="card__title">Амстердам</h2>
+                        <button class="card__like"></button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card__image" src="./images/Mikolayki.jpg" alt="Миколайки">
+                    <div class="card__info">
+                        <h2 class="card__title">Миколайки</h2>
+                        <button class="card__like"></button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card__image" src="./images/Budapest.jpg" alt="Будапешт">
+                    <div class="card__info">
+                        <h2 class="card__title">Будапешт</h2>
+                        <button class="card__like"></button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card__image" src="./images/Saint-Petersburg.jpg" alt="Санкт-Петербург">
+                    <div class="card__info">
+                        <h2 class="card__title">Санкт-Петербург</h2>
+                        <button class="card__like"></button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card__image" src="./images/Rome.jpg" alt="Рим">
+                    <div class="card__info">
+                        <h2 class="card__title">Рим</h2>
+                        <button class="card__like"></button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p class="footer__title">© 2020 Mesto Russia</p>
+        </footer>
+
+    </div>
+
+    <section class="popup">
+        <form class="popup__container">
+            <input class="popup__close-button" type="button" value="Закрыть">
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <input class="popup__input popup__name" type="text" name="form-name" placeholder="Имя фамилия"
+                value="">
+            <input class="popup__input popup__job" type="text" name="form-job" placeholder="Кем работаете"
+                value="">
+            <input class="popup__apply-button" value="Сохранить" type="submit">
+        </form>
+    </section>
+
+    <script src="script/index.js"></script>
+</body>
+</html>
