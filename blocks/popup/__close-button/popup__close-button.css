@@ -14,13 +14,6 @@
     opacity: 0.6;
 }
 
-<<<<<<< HEAD
-=======
-.popup__close-button[value="Закрыть"] {
-    color: transparent;
-}
-
->>>>>>> 9a77b31cd1b7acfa41c75f37d47cd41979bbb5ea
 @media all and (min-width: 280px) and (max-width: 600px) {
     .popup__close-button {
         width: 20px;
