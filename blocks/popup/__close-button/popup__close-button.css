@@ -7,14 +7,11 @@
     background: url("../../../images/Close-form.svg") no-repeat center;
     border: none;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .popup__close-button:hover {
     opacity: 0.6;
-}
-
-.popup__close-button[value="Закрыть"] {
-    color: transparent
 }
 
 @media all and (min-width: 280px) and (max-width: 600px) {

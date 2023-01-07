@@ -3,9 +3,10 @@
     height: 24px;
     border: 1px solid #FFFFFF;
     background: url("../../../images/Vector-button.svg") no-repeat center;
-    margin-left: 25px;
-    margin-top: 15px;
+    margin-left: 20px;
+    margin-top: 16px;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .profile__edit-button:hover {

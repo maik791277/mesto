@@ -17,7 +17,7 @@
 
 **Демо**
 
-* [Ссылка на сайт Путешествие по России](https://maik791277.github.io/russian-travel/)
+* [Ссылка на сайт Mesto](https://maik791277.github.io/mesto/)
 
 **Технологии в проекте**
 

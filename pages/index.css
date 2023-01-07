@@ -1,10 +1,9 @@
 /* normalize.css */
 @import "../vendor/normalize.css";
 /* fonts */
-@import "../vendor/fonts/fonts.css";
+@import "../vendor/fonts.css";
 /* body */
 @import "../blocks/body/body.css";
-
 
 /* page */
 @import "../blocks/page/page.css";
@@ -45,3 +44,5 @@
 @import "../blocks/popup/__apply-button/popup__apply-button.css";
 
 
+/* body_preload */
+@import "../blocks/body/_preload/body_preload.css";

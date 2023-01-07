@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="pages/index.css">
 </head>
 
-<body class="body">
+<body class="body body_preload">
 
     <div class="page">
 
@@ -25,52 +25,52 @@
                         <h1 class="profile__name">Жак-Ив Кусто</h1>
                         <p class="profile__job">Исследователь океана</p>
                     </div>
-                    <button class="profile__edit-button"></button>
+                    <button class="profile__edit-button" type="button"></button>
                 </div>
-                <button class="profile__add-button"></button>
+                <button class="profile__add-button" type="button"></button>
             </section>
 
             <section class="card-grid">
-                <div class="card">
+                <ul class="card">
                     <img class="card__image" src="./images/Kaliningrad.jpg" alt="Калининград">
                     <div class="card__info">
                         <h2 class="card__title">Калининград</h2>
-                        <button class="card__like"></button>
+                        <button class="card__like" type="button"></button>
                     </div>
-                </div>
+                </ul>
                 <div class="card">
                     <img class="card__image" src="./images/Amsterdam.jpg" alt="Амстердам">
                     <div class="card__info">
                         <h2 class="card__title">Амстердам</h2>
-                        <button class="card__like"></button>
+                        <button class="card__like" type="button"></button>
                     </div>
                 </div>
                 <div class="card">
                     <img class="card__image" src="./images/Mikolayki.jpg" alt="Миколайки">
                     <div class="card__info">
                         <h2 class="card__title">Миколайки</h2>
-                        <button class="card__like"></button>
+                        <button class="card__like" type="button"></button>
                     </div>
                 </div>
                 <div class="card">
                     <img class="card__image" src="./images/Budapest.jpg" alt="Будапешт">
                     <div class="card__info">
                         <h2 class="card__title">Будапешт</h2>
-                        <button class="card__like"></button>
+                        <button class="card__like" type="button"></button>
                     </div>
                 </div>
                 <div class="card">
                     <img class="card__image" src="./images/Saint-Petersburg.jpg" alt="Санкт-Петербург">
                     <div class="card__info">
                         <h2 class="card__title">Санкт-Петербург</h2>
-                        <button class="card__like"></button>
+                        <button class="card__like" type="button"></button>
                     </div>
                 </div>
                 <div class="card">
                     <img class="card__image" src="./images/Rome.jpg" alt="Рим">
                     <div class="card__info">
                         <h2 class="card__title">Рим</h2>
-                        <button class="card__like"></button>
+                        <button class="card__like" type="button"></button>
                     </div>
                 </div>
             </section>
@@ -83,14 +83,14 @@
     </div>
 
     <section class="popup">
-        <form class="popup__container">
-            <input class="popup__close-button" type="button" value="Закрыть">
+        <form class="popup__container" name="popup">
+            <button class="popup__close-button" type="button"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <input class="popup__input popup__name" type="text" name="form-name" placeholder="Имя фамилия"
+            <input class="popup__input popup__input_field_name" type="text" name="form-name" placeholder="Имя фамилия"
                 value="">
-            <input class="popup__input popup__job" type="text" name="form-job" placeholder="Кем работаете"
+            <input class="popup__input popup__input_field_job" type="text" name="form-job" placeholder="Кем работаете"
                 value="">
-            <input class="popup__apply-button" value="Сохранить" type="submit">
+            <button class="popup__apply-button" type="submit">Сохранить</button>
         </form>
     </section>
 
