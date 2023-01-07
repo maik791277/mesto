@@ -14,7 +14,7 @@
 }
 
 .popup__close-button[value="Закрыть"] {
-    color: transparent
+    color: transparent;
 }
 
 @media all and (min-width: 280px) and (max-width: 600px) {
