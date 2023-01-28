@@ -44,7 +44,7 @@ let addButtonTitle = profileElement.querySelector('.profile__edit-button');
 //Находим кнопки закрытия popup
 const closeButtonTitle = popupUserTitle.querySelector('.popup__close-button');
 const closeButtonCard = popupUserCard.querySelector('.popup__close-button');
-const closeButtonImage = popupUserImage.querySelector('.popup__close-button')
+const closeButtonImage = popupUserImage.querySelector('.popup-image__button')
 // Находим поля формы Card
 let nameInputCard = popupUserCard.querySelector('.popup__input_field_name');
 let jobInputCard = popupUserCard.querySelector('.popup__input_field_job')
@@ -84,7 +84,7 @@ function addCard(name, link, alt,) {
         popupImageSrc.alt = `${alt}`;
         popupUserImageTitle.textContent = `${name}`;
     })
-    popupUserImage.addEventListener('click', function () {
+    closeButtonImage.addEventListener('click', function () {
         clousePopup(popupUserImage)
     })
 
