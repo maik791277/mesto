@@ -8,6 +8,7 @@
     border: none;
     transition: 0.3s;
     cursor: pointer;
+    z-index: 10;
 }
 
 .popup__close-button:hover {
