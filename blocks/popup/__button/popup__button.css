@@ -1,4 +1,4 @@
-.popup__apply-button {
+.popup__button {
     max-width: 358px;
     width: 100%;
     min-height: 50px;
@@ -9,12 +9,12 @@
     cursor: pointer;
 }
 
-.popup__apply-button:hover {
+.popup__button:hover {
     opacity: 0.8;
 }
 
 @media all and (min-width: 280px) and (max-width: 600px) {
-    .popup__apply-button {
+    .popup__button {
         min-height: 48px;
     }
 }

@@ -37,15 +37,18 @@
 /* footer */
 @import "../blocks/footer/footer.css";
 @import "../blocks/footer/__title/footer__title.css";
-
-
 /* popup */
 @import "../blocks/popup/popup.css";
-@import "../blocks/popup/__container/popup__container.css";
+@import "../blocks/popup/__form/popup__form.css";
 @import "../blocks/popup/__close-button/popup__close-button.css";
 @import "../blocks/popup/__title/popup__title.css";
 @import "../blocks/popup/__input/popup__input.css";
-@import "../blocks/popup/__apply-button/popup__apply-button.css";
+@import "../blocks/popup/__input/_type/popup__input_type_input-error.css";
+@import "../blocks/popup/__button/popup__button.css";
+@import "../blocks/popup/__button/_type/popup__button_type_error.css";
+@import "../blocks/popup/__field/popup__field.css";
+@import "../blocks/popup/__input-error/popup__input-error.css";
+@import "../blocks/popup/__input-error/_type/popup__input-error_type_visible.css";
 /* popup image */
 @import "../blocks/popup-image/popup-image.css";
 @import "../blocks/popup-image/__container/popup-image__container.css";
@@ -53,6 +56,7 @@
 @import "../blocks/popup-image/__title/popup-image__title.css";
 /* popup  opened*/
 @import "../blocks/popup/_opened/popup_opened.css";
-
 /* body_preload */
 @import "../blocks/body/_preload/body_preload.css";
+/* overlay */
+@import "../blocks/overlay/overlay.css";

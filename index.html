@@ -45,30 +45,80 @@
 
 
     <section class="popup popup_add_user-title">
-        <form class="popup__container" name="popup">
+        <div class="overlay"></div>
+        <form class="popup__form" name="popup-profile" novalidate>
+
             <button class="popup__close-button" type="button"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <input class="popup__input popup__input_field_name" type="text" name="form-name" placeholder="Имя фамилия"
-                value="">
-            <input class="popup__input popup__input_field_job" type="text" name="form-job" placeholder="Кем работаете"
-                value="">
-            <button class="popup__apply-button" type="submit">Сохранить</button>
+
+            <label class="popup__field">
+                <input class="popup__input popup__input_field_name"
+                       type="text"
+                       name="profile-name"
+                       id="profile-name-input"
+                       required
+                       minlength="2"
+                       maxlength="40"
+                       placeholder="Имя фамилия"
+                       value="">
+                <span class="popup__input-error profile-name-input-error"></span>
+            </label>
+
+            <label class="popup__field">
+                <input class="popup__input popup__input_field_job"
+                       type="text"
+                       name="profile-job"
+                       id="profile-job-input"
+                       required
+                       minlength="2"
+                       maxlength="200"
+                       placeholder="Кем работаете"
+                       value="">
+                <span class="popup__input-error profile-job-input-error"></span>
+            </label>
+
+            <button class="popup__button popup__button_type_error" type="submit" >Сохранить</button>
         </form>
     </section>
 
+
     <section class="popup popup_add_user-card">
-        <form class="popup__container" name="popup">
+        <div class="overlay"></div>
+        <form class="popup__form" name="popup-card" novalidate>
+
             <button class="popup__close-button" type="button"></button>
             <h2 class="popup__title">Новое место</h2>
-            <input class="popup__input popup__input_field_name" type="text" name="form-name" placeholder="Название"
-                   value="">
-            <input class="popup__input popup__input_field_job" type="text" name="form-job" placeholder="Ссылка на картинку"
-                   value="">
-            <button class="popup__apply-button" type="submit">Сохранить</button>
+
+            <label class="popup__field">
+                <input class="popup__input popup__input_field_name"
+                       type="text"
+                       name="card-name"
+                       id="card-name-input"
+                       required
+                       minlength="2"
+                       maxlength="30"
+                       placeholder="Название"
+                       value="">
+                <span class="popup__input-error card-name-input-error"></span>
+            </label>
+
+            <label class="popup__field">
+                <input class="popup__input popup__input_field_job"
+                       type="url"
+                       name="card-job"
+                       id="card-job-input"
+                       required
+                       placeholder="Ссылка на картинку"
+                       value="">
+                <span class="popup__input-error card-job-input-error"></span>
+            </label>
+
+            <button class="popup__button popup__button_type_error" type="submit">Сохранить</button>
         </form>
     </section>
 
     <section class="popup popup-image">
+        <div class="overlay"></div>
         <div class="popup-image__container">
             <button class="popup__close-button" type="button"></button>
             <img class="popup-image__image" src="https://" alt="">
@@ -89,9 +139,12 @@
             </div>
             <button class="card__remove" type="button"></button>
         </li>
-
     </template>
 
+
+
+    <script src="script/validate.js" defer></script>
+    <script src="script/arrays/card.js" defer></script>
     <script src="script/index.js" defer></script>
 </body>
 </html>

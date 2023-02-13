@@ -1,39 +1,9 @@
-const initialCards = [
-    {
-        name: 'Архыз',
-        link: 'https://images.unsplash.com/photo-1485740112426-0c2549fa8c86?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-        alt: 'Архыз'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://images.unsplash.com/photo-1511447333015-45b65e60f6d5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1555&q=80',
-        alt: 'Челябинская область'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://images.unsplash.com/photo-1519608487953-e999c86e7455?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-        alt: 'Иваново'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg',
-        alt: 'Камчатка'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg',
-        alt: 'Холмогорский район'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg',
-        alt: 'Байкал'
-    }
-];
-
 // Находим в DOM
 const profileForm = document.querySelector('.profile')
 const bodyPreload = document.querySelector('.body')
+//asdasdasdasd
+const sectionPopup = Array.from(document.querySelectorAll('.popup'))
+const sectionOverlay = Array.from(document.querySelectorAll('.overlay'))
 //Находим popup
 const popupUserTitle = document.querySelector('.popup_add_user-title');
 const popupUserCard = document.querySelector('.popup_add_user-card');
@@ -58,6 +28,9 @@ const jobProfile = profileForm.querySelector('.profile__job');
 //Находжение Template
 const cardTemplate = document.querySelector('#place-card').content;
 const cardGrid = document.querySelector('.card-grid__cards');
+
+
+
 
 
 // функции открытия закрытия
@@ -111,7 +84,18 @@ initialCards.forEach(function asd(el) {
 
 //форма Card
 // Кнопка открытия формы Card
-addButtonCard.addEventListener('click', () => openPopup(popupUserCard));
+addButtonCard.addEventListener('click', () => {
+    enableValidation({
+        formSelector: '.popup__form',
+        inputSelector: '.popup__input',
+        popup__button: '.popup__button',
+        inactiveButtonClass: 'popup__button_type_error',
+        inputErrorClass: 'popup__input_type_input-error',
+        errorClass: 'popup__input-error',
+        errorClassVisible: 'popup__input-error_type_visible'
+    })
+    openPopup(popupUserCard)
+});
 
 // Обработчик «отправки» формы.Card
 function addNewCard(evt) {
@@ -122,6 +106,7 @@ function addNewCard(evt) {
     cardGrid.prepend(addCard(nameInput, linkInput, altInput));
     closePopup(popupUserCard)
     evt.target.reset()
+
 }
 
 // он будет следить за событием “submit” - «отправка»
@@ -131,6 +116,15 @@ popupUserCard.addEventListener('submit', addNewCard);
 //форма Title
 // Кнопка открытия формы Title
 addButtonTitle.addEventListener('click', function () {
+    enableValidation({
+        formSelector: '.popup__form',
+        inputSelector: '.popup__input',
+        popup__button: '.popup__button',
+        inactiveButtonClass: 'popup__button_type_error',
+        inputErrorClass: 'popup__input_type_input-error',
+        errorClass: 'popup__input-error',
+        errorClassVisible: 'popup__input-error_type_visible'
+    })
     openPopup(popupUserTitle)
     nameInputTitle.value = nameProfile.textContent;
     jobInputTitle.value = jobProfile.textContent;
@@ -139,10 +133,12 @@ addButtonTitle.addEventListener('click', function () {
 // Обработчик «отправки» формы.
 function handleProfileFormSubmit(evt) {
     evt.preventDefault();
+
     nameProfile.textContent = nameInputTitle.value;
     jobProfile.textContent = jobInputTitle.value;
 
     closePopup(popupUserTitle);
+    evt.target.reset()
 }
 
 // он будет следить за событием “submit” - «отправка»
@@ -154,4 +150,40 @@ popupUserTitle.addEventListener('submit', handleProfileFormSubmit);
 window.addEventListener("load", function () {
     bodyPreload.classList.remove('body_preload')
 }, false);
+
+
+
+
+
+/**
+ * находит все popup и назначает closePopup на overlay
+ * @param {*} overlay принимает массив со всеми overlay
+ * @param {*} popup принимает массив со всеми popup
+ * */
+const closuresOverlay = (overlay, popup) => {
+    overlay.forEach(function (elementOverla) {
+        elementOverla.addEventListener('click', function () {
+            popup.forEach(function (elementPopap,evt) {
+                closePopup(elementPopap)
+            })
+        })
+    })
+}
+
+closuresOverlay(sectionOverlay, sectionPopup)
+
+
+function keyHandler(evt, popup) {
+    if (evt.key === 'Escape') {
+       closePopup(popup)
+    }
+}
+
+popupUserCard.addEventListener('keydown', (evt) => {
+    keyHandler(evt,popupUserCard)
+});
+popupUserTitle.addEventListener('keydown', (evt) => {
+    keyHandler(evt,popupUserTitle)
+});
+
 

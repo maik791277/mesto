@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="dca2869d-9a7c-416f-baa4-072dce9cc4c8" name="Changes" comment="Mesto - правка">
+      <change afterPath="$PROJECT_DIR$/blocks/overlay/overlay.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blocks/popup/__button/_type/popup__button_type_error.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blocks/popup/__field/popup__field.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blocks/popup/__input-error/_type/popup__input-error_type_visible.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blocks/popup/__input-error/popup__input-error.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blocks/popup/__input/_type/popup__input_type_input-error.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/script/arrays/card.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/script/validate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blocks/popup-image/__container/popup-image__container.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/popup-image/__container/popup-image__container.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blocks/popup/__apply-button/popup__apply-button.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/popup/__button/popup__button.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blocks/popup/__container/popup__container.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/popup/__form/popup__form.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blocks/popup/__input/popup__input.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/popup/__input/popup__input.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blocks/popup/popup.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/popup/popup.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/script/index.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2JytEVIQr26YiNISn8sqqvvbb8l" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/potil/Desktop/dev/mesto/blocks/popup/__input-error",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\potil\Desktop\dev\mesto\blocks\popup\__input-error" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\potil\Desktop\dev\mesto\images" />
+      <recent name="C:\Users\potil\Desktop\mesto-main\vendor" />
+      <recent name="C:\Users\potil\Desktop\mesto-main\vendor\fonts" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dca2869d-9a7c-416f-baa4-072dce9cc4c8" name="Changes" comment="" />
+      <created>1673062038976</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1673062038976</updated>
+      <workItem from="1673062040098" duration="459000" />
+      <workItem from="1673102985135" duration="11921000" />
+      <workItem from="1673126011315" duration="106000" />
+      <workItem from="1673126297205" duration="18000" />
+      <workItem from="1673132543165" duration="482000" />
+      <workItem from="1673157529869" duration="1832000" />
+      <workItem from="1673242786092" duration="490000" />
+      <workItem from="1673243935617" duration="6000" />
+      <workItem from="1673244024428" duration="55000" />
+      <workItem from="1673249083808" duration="962000" />
+      <workItem from="1673275468596" duration="166000" />
+      <workItem from="1673686302779" duration="613000" />
+      <workItem from="1673793073916" duration="142000" />
+      <workItem from="1673923141863" duration="19000" />
+      <workItem from="1674767564002" duration="676000" />
+      <workItem from="1674856082085" duration="36462000" />
+      <workItem from="1674898003864" duration="5196000" />
+      <workItem from="1674980681089" duration="2147000" />
+      <workItem from="1674989907869" duration="54000" />
+      <workItem from="1675418892580" duration="1376000" />
+      <workItem from="1675426783456" duration="12000" />
+      <workItem from="1676141416139" duration="1819000" />
+      <workItem from="1676213827166" duration="55000" />
+      <workItem from="1676219563970" duration="10516000" />
+      <workItem from="1676287514541" duration="26917000" />
+    </task>
+    <task id="LOCAL-00001" summary="Mesto - правка">
+      <created>1673132958728</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1673132958728</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Mesto - правка" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mesto - правка" />
+  </component>
+</project>
