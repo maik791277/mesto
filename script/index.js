@@ -3,6 +3,7 @@ const profileForm = document.querySelector(".profile");
 const bodyPreload = document.querySelector(".body");
 //asdasdasdasd
 const popupList = Array.from(document.querySelectorAll(".popup"));
+const popup = document.querySelector(".popup");
 //Находим popup
 const popupUserTitle = document.querySelector(".popup_add_user-title");
 const popupUserCard = document.querySelector(".popup_add_user-card");
@@ -154,8 +155,11 @@ function closePopupOverlay(popup) {
 closePopupOverlay(popupList);
 
 function handlerEscape(evt) {
-  if (evt.key === "Escape") {
-    closePopup(popupUserTitle);
-    closePopup(popupUserCard);
-  }
+  popupList.forEach(function (popup) {
+    if (popup.classList.contains("popup_opened")) {
+      if (evt.key === "Escape") {
+        return closePopup(popup);
+      }
+    }
+  });
 }
