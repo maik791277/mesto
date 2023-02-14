@@ -147,7 +147,6 @@ function closePopupOverlay(popup) {
     popup.addEventListener("mousedown", function (evt) {
       if (evt.target === this) {
         closePopup(popup);
-        console.log(popup);
       }
     });
   });
