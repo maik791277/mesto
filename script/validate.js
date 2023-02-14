@@ -3,17 +3,16 @@
  * @param {*} config принимает обыект
  * */
 function enableValidation(config) {
-    const formList = Array.from(document.querySelectorAll(config.formSelector));
-    formList.forEach(function (formElement) {
-        formElement.addEventListener('submit', disableSubmit)
-        formElement.addEventListener('input', () => {
-            toggleButton(formElement, config)
-        });
+  const formList = Array.from(document.querySelectorAll(config.formSelector));
+  formList.forEach(function (formElement) {
+    formElement.addEventListener("submit", disableSubmit);
+    formElement.addEventListener("input", () => {
+      toggleButton(formElement, config);
+    });
 
-        toggleButton(formElement, config)
-        addInputListeners(formElement, config)
-
-    })
+    toggleButton(formElement, config);
+    addInputListeners(formElement, config);
+  });
 }
 
 /**
@@ -22,11 +21,11 @@ function enableValidation(config) {
  * @param {*} config принимает обыект
  * */
 function toggleButton(form, config) {
-    const buttonSubmit = form.querySelector(config.popup__button);
-    const isFormValid = form.checkValidity();
+  const buttonSubmit = form.querySelector(config.popup__button);
+  const isFormValid = form.checkValidity();
 
-    buttonSubmit.disabled = !isFormValid;
-    buttonSubmit.classList.toggle(config.inactiveButtonClass, !isFormValid);
+  buttonSubmit.disabled = !isFormValid;
+  buttonSubmit.classList.toggle(config.inactiveButtonClass, !isFormValid);
 }
 
 /**
@@ -35,13 +34,13 @@ function toggleButton(form, config) {
  * @param {*} config принимает обыект
  * */
 function addInputListeners(form, config) {
-    const inputList = Array.from(form.querySelectorAll(config.inputSelector));
+  const inputList = Array.from(form.querySelectorAll(config.inputSelector));
 
-    inputList.forEach(function (item) {
-        item.addEventListener('input', (evt) => {
-            handleFormInput(evt, config)
-        });
-    })
+  inputList.forEach(function (item) {
+    item.addEventListener("input", (evt) => {
+      handleFormInput(evt, config);
+    });
+  });
 }
 
 /**
@@ -50,15 +49,15 @@ function addInputListeners(form, config) {
  * @param {*} config принимает обыект
  * */
 function handleFormInput(evt, config) {
-    const input = evt.target;
-    const inputId = input.id;
-    const errorElement = document.querySelector(`.${inputId}-error`)
+  const input = evt.target;
+  const inputId = input.id;
+  const errorElement = document.querySelector(`.${inputId}-error`);
 
-    if (!input.validity.valid) {
-        showInputError(input, errorElement, config)
-    } else {
-        hideInputError(input, errorElement, config)
-    }
+  if (!input.validity.valid) {
+    showInputError(input, errorElement, config);
+  } else {
+    hideInputError(input, errorElement, config);
+  }
 }
 
 /**
@@ -68,9 +67,9 @@ function handleFormInput(evt, config) {
  * @param {*} config принимает обыект
  * */
 function showInputError(input, errorElement, config) {
-    input.classList.add(config.inputErrorClass);
-    errorElement.textContent = input.validationMessage;
-    errorElement.classList.add(config.errorClassVisible)
+  input.classList.add(config.inputErrorClass);
+  errorElement.textContent = input.validationMessage;
+  errorElement.classList.add(config.errorClassVisible);
 }
 
 /**
@@ -80,9 +79,9 @@ function showInputError(input, errorElement, config) {
  * @param {*} config принимает обыект
  * */
 function hideInputError(input, errorElement, config) {
-    input.classList.remove(config.inputErrorClass);
-    errorElement.textContent = '';
-    errorElement.classList.remove(config.errorClassVisible)
+  input.classList.remove(config.inputErrorClass);
+  errorElement.textContent = "";
+  errorElement.classList.remove(config.errorClassVisible);
 }
 
 /**
@@ -90,7 +89,15 @@ function hideInputError(input, errorElement, config) {
  * @param {*} evt - работает с preventDefault
  * */
 function disableSubmit(evt) {
-    evt.preventDefault();
+  evt.preventDefault();
 }
 
-
+enableValidation({
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  popup__button: ".popup__button",
+  inactiveButtonClass: "popup__button_type_error",
+  inputErrorClass: "popup__input_type_input-error",
+  errorClass: "popup__input-error",
+  errorClassVisible: "popup__input-error_type_visible",
+});
