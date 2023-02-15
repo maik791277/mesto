@@ -161,6 +161,5 @@ function handlerEscape(evt) {
   const popupOpen = document.querySelector('.popup_opened')
       if (evt.key === "Escape") {
         closePopup(popupOpen);
-        console.log(popupOpen)
       }
 }
