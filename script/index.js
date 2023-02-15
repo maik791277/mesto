@@ -1,16 +1,15 @@
 // Находим в DOM
 const profileForm = document.querySelector(".profile");
 const bodyPreload = document.querySelector(".body");
-//asdasdasdasd
+// Масив всех popup
 const popupList = Array.from(document.querySelectorAll(".popup"));
-const popup = document.querySelector(".popup");
 //Находим popup
 const popupUserTitle = document.querySelector(".popup_add_user-title");
 const popupUserCard = document.querySelector(".popup_add_user-card");
 const popupUserImage = document.querySelector(".popup-image");
 //Находим кнопки открытия popup
-const ButtonOpenCard = profileForm.querySelector(".profile__add-button");
-const ButtonOpenTitle = profileForm.querySelector(".profile__edit-button");
+const buttonOpenCard = profileForm.querySelector(".profile__add-button");
+const buttonOpenTitle = profileForm.querySelector(".profile__edit-button");
 // находим все крестики проекта по универсальному селектору
 const buttonsClose = document.querySelectorAll(".popup__close-button");
 // Находим поля формы Card
@@ -35,6 +34,7 @@ const cardGrid = document.querySelector(".card-grid__cards");
 function openPopup(popupElement) {
   popupElement.classList.add("popup_opened");
   popupElement.addEventListener("keydown", handlerEscape);
+
 }
 
 function closePopup(popupElement) {
@@ -86,12 +86,14 @@ initialCards.forEach((el) => {
 
 //форма Card
 // Кнопка открытия формы Card
-ButtonOpenCard.addEventListener("click", () => {
+buttonOpenCard.addEventListener("click", () => {
   openPopup(popupUserCard);
 });
 
 // Обработчик «отправки» формы.Card
 function addNewCard(evt) {
+  const buttonSubmit = popupUserCard.querySelector('.popup__button')
+
   evt.preventDefault();
   const valueCard = {
     name: nameInputCard.value,
@@ -100,6 +102,8 @@ function addNewCard(evt) {
   };
   cardGrid.prepend(addCard(valueCard));
   closePopup(popupUserCard);
+
+  buttonSubmit.classList.add('popup__button_type_error')
   evt.target.reset();
 }
 
@@ -108,7 +112,7 @@ popupUserCard.addEventListener("submit", addNewCard);
 
 //форма Title
 // Кнопка открытия формы Title
-ButtonOpenTitle.addEventListener("click", function () {
+buttonOpenTitle.addEventListener("click", function () {
   openPopup(popupUserTitle);
   nameInputTitle.value = nameProfile.textContent;
   jobInputTitle.value = jobProfile.textContent;
@@ -154,11 +158,9 @@ function closePopupOverlay(popup) {
 closePopupOverlay(popupList);
 
 function handlerEscape(evt) {
-  popupList.forEach(function (popup) {
-    if (popup.classList.contains("popup_opened")) {
+  const popupOpen = document.querySelector('.popup_opened')
       if (evt.key === "Escape") {
-        return closePopup(popup);
+        closePopup(popupOpen);
+        console.log(popupOpen)
       }
-    }
-  });
 }
