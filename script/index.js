@@ -12,6 +12,8 @@ const buttonOpenCard = profileForm.querySelector(".profile__add-button");
 const buttonOpenTitle = profileForm.querySelector(".profile__edit-button");
 // находим все крестики проекта по универсальному селектору
 const buttonsClose = document.querySelectorAll(".popup__close-button");
+//Находим кнопки submit popup
+const buttonSubmitCard = popupUserCard.querySelector('.popup__button')
 // Находим поля формы Card
 const nameInputCard = popupUserCard.querySelector(".popup__input_field_name");
 const jobInputCard = popupUserCard.querySelector(".popup__input_field_job");
@@ -92,8 +94,6 @@ buttonOpenCard.addEventListener("click", () => {
 
 // Обработчик «отправки» формы.Card
 function addNewCard(evt) {
-  const buttonSubmit = popupUserCard.querySelector('.popup__button')
-
   evt.preventDefault();
   const valueCard = {
     name: nameInputCard.value,
@@ -103,7 +103,8 @@ function addNewCard(evt) {
   cardGrid.prepend(addCard(valueCard));
   closePopup(popupUserCard);
 
-  buttonSubmit.classList.add('popup__button_type_error')
+  buttonSubmitCard.disabled = true;
+  buttonSubmitCard.classList.add('popup__button_type_error')
   evt.target.reset();
 }
 
@@ -161,6 +162,5 @@ function handlerEscape(evt) {
   const popupOpen = document.querySelector('.popup_opened')
       if (evt.key === "Escape") {
         closePopup(popupOpen);
-        console.log(popupOpen)
       }
 }
