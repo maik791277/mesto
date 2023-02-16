@@ -14,6 +14,7 @@ const buttonOpenTitle = profileForm.querySelector(".profile__edit-button");
 const buttonsClose = document.querySelectorAll(".popup__close-button");
 //Находим кнопки submit popup
 const buttonSubmitCard = popupUserCard.querySelector('.popup__button')
+const buttonSubmitTitle = popupUserTitle.querySelector('.popup__button')
 // Находим поля формы Card
 const nameInputCard = popupUserCard.querySelector(".popup__input_field_name");
 const jobInputCard = popupUserCard.querySelector(".popup__input_field_job");
@@ -127,6 +128,8 @@ function handleProfileFormSubmit(evt) {
   jobProfile.textContent = jobInputTitle.value;
 
   closePopup(popupUserTitle);
+  buttonSubmitTitle.disabled = true;
+  buttonSubmitTitle.classList.add('popup__button_type_error')
   evt.target.reset();
 }
 
