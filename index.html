@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,134 +11,106 @@
 </head>
 
 <body class="body body_preload">
-<div class="page">
-  <header class="header">
-    <img class="header__logo" src="images/Mesto.svg" alt="Логотип Mesto">
-  </header>
+  <div class="page">
+    <header class="header">
+      <img class="header__logo" src="images/Mesto.svg" alt="Логотип Mesto">
+    </header>
 
-  <main class="content">
-    <section class="profile">
-      <img class="profile__avatar" src="./images/image.png" alt="Аватарка">
-      <div class="profile__info">
-        <div class="profile__info-content">
-          <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <p class="profile__job">Исследователь океана</p>
+    <main class="content">
+      <section class="profile">
+        <img class="profile__avatar" src="./images/image.png" alt="Аватарка">
+        <div class="profile__info">
+          <div class="profile__info-content">
+            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <p class="profile__job">Исследователь океана</p>
+          </div>
+          <button class="profile__edit-button" type="button"></button>
         </div>
-        <button class="profile__edit-button" type="button"></button>
-      </div>
-      <button class="profile__add-button" type="button"></button>
-    </section>
+        <button class="profile__add-button" type="button"></button>
+      </section>
 
-    <section class="card-grid">
-      <ul class="card-grid__cards">
-        <!--card-->
-      </ul>
-    </section>
-  </main>
+      <section class="card-grid">
+        <ul class="card-grid__cards">
+          <!--card-->
+        </ul>
+      </section>
+    </main>
 
-  <footer class="footer">
-    <p class="footer__title">© 2020 Mesto Russia</p>
-  </footer>
-</div>
-
-
-<section class="popup popup_add_user-title">
-  <form class="popup__form" name="popup-profile" novalidate>
-
-    <button class="popup__close-button" type="button"></button>
-    <h2 class="popup__title">Редактировать профиль</h2>
-
-    <label class="popup__field">
-      <input class="popup__input popup__input_field_name"
-             type="text"
-             name="profile-name"
-             id="profile-name-input"
-             required
-             minlength="2"
-             maxlength="40"
-             placeholder="Имя фамилия"
-             value="">
-      <span class="popup__input-error profile-name-input-error"></span>
-    </label>
-
-    <label class="popup__field">
-      <input class="popup__input popup__input_field_job"
-             type="text"
-             name="profile-job"
-             id="profile-job-input"
-             required
-             minlength="2"
-             maxlength="200"
-             placeholder="Кем работаете"
-             value="">
-      <span class="popup__input-error profile-job-input-error"></span>
-    </label>
-
-    <button class="popup__button popup__button_type_error" type="submit">Сохранить</button>
-  </form>
-</section>
-
-
-<section class="popup popup_add_user-card">
-  <form class="popup__form" name="popup-card" novalidate>
-
-    <button class="popup__close-button" type="button"></button>
-    <h2 class="popup__title">Новое место</h2>
-
-    <label class="popup__field">
-      <input class="popup__input popup__input_field_name"
-             type="text"
-             name="card-name"
-             id="card-name-input"
-             required
-             minlength="2"
-             maxlength="30"
-             placeholder="Название"
-             value="">
-      <span class="popup__input-error card-name-input-error"></span>
-    </label>
-
-    <label class="popup__field">
-      <input class="popup__input popup__input_field_job"
-             type="url"
-             name="card-job"
-             id="card-job-input"
-             required
-             placeholder="Ссылка на картинку"
-             value="">
-      <span class="popup__input-error card-job-input-error"></span>
-    </label>
-
-    <button class="popup__button popup__button_type_error" type="submit">Сохранить</button>
-  </form>
-</section>
-
-<section class="popup popup-image">
-  <div class="popup-image__container">
-    <button class="popup__close-button" type="button"></button>
-    <img class="popup-image__image" src="https://" alt="">
-    <p class="popup-image__title"></p>
+    <footer class="footer">
+      <p class="footer__title">© 2020 Mesto Russia</p>
+    </footer>
   </div>
-</section>
 
 
-<template id="place-card">
-  <li class="card">
-    <div class="card__image-block">
-      <button class="card__image-button" type="button"></button>
-      <img class="card__image" src="https://" alt="Калининград">
+  <section class="popup popup_add_user-title">
+    <form class="popup__form" name="popup-profile" novalidate>
+
+      <button class="popup__close-button" type="button"></button>
+      <h2 class="popup__title">Редактировать профиль</h2>
+
+      <label class="popup__field">
+        <input class="popup__input popup__input_field_name" type="text" name="profile-name" id="profile-name-input"
+          required minlength="2" maxlength="40" placeholder="Имя фамилия" value="">
+        <span class="popup__input-error profile-name-input-error"></span>
+      </label>
+
+      <label class="popup__field">
+        <input class="popup__input popup__input_field_job" type="text" name="profile-job" id="profile-job-input"
+          required minlength="2" maxlength="200" placeholder="Кем работаете" value="">
+        <span class="popup__input-error profile-job-input-error"></span>
+      </label>
+
+      <button class="popup__button popup__button_type_error" type="submit">Сохранить</button>
+    </form>
+  </section>
+
+
+  <section class="popup popup_add_user-card">
+    <form class="popup__form" name="popup-card" novalidate>
+
+      <button class="popup__close-button" type="button"></button>
+      <h2 class="popup__title">Новое место</h2>
+
+      <label class="popup__field">
+        <input class="popup__input popup__input_field_name" type="text" name="card-name" id="card-name-input" required
+          minlength="2" maxlength="30" placeholder="Название" value="">
+        <span class="popup__input-error card-name-input-error"></span>
+      </label>
+
+      <label class="popup__field">
+        <input class="popup__input popup__input_field_job" type="url" name="card-job" id="card-job-input" required
+          placeholder="Ссылка на картинку" value="">
+        <span class="popup__input-error card-job-input-error"></span>
+      </label>
+
+      <button class="popup__button popup__button_type_error" type="submit">Сохранить</button>
+    </form>
+  </section>
+
+  <section class="popup popup-image">
+    <div class="popup-image__container">
+      <button class="popup__close-button" type="button"></button>
+      <img class="popup-image__image" src="https://" alt="">
+      <p class="popup-image__title"></p>
     </div>
-    <div class="card__info">
-      <h2 class="card__title"></h2>
-      <button class="card__like" type="button"></button>
-    </div>
-    <button class="card__remove" type="button"></button>
-  </li>
-</template>
+  </section>
 
 
-<script src="script/validate.js" defer></script>
-<script src="script/arrays/card.js" defer></script>
-<script src="script/index.js" defer></script>
+  <template id="place-card">
+    <li class="card">
+      <div class="card__image-block">
+        <button class="card__image-button" type="button"></button>
+        <img class="card__image" src="https://" alt="Калининград">
+      </div>
+      <div class="card__info">
+        <h2 class="card__title"></h2>
+        <button class="card__like" type="button"></button>
+      </div>
+      <button class="card__remove" type="button"></button>
+    </li>
+  </template>
+
+
+  <script type="module" src="script/index.js" defer></script>
 </body>
 </html>
