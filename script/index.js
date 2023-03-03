@@ -2,30 +2,30 @@ import {
   closePopupOverlay,
   animateBody,
   closuresElement,
-  CardPopaps,
-  validationPopup,
+   createMethodsCard,
   creatingCards,
-  titlePopups
+   createMethodsTitle
 } from "./utils/utils.js";
 
 export {
-  popupUserImage,
-  popupImageSrc,
-  popupUserImageTitle,
-  bodyPreload,
-  buttonsClose,
-  buttonOpenCard,
-  popupUserCard,
-  nameInputCard,
-  jobInputCard,
-  buttonSubmitCard,
-  buttonOpenTitle,
-  popupUserTitle,
-  jobProfile,
-  nameProfile,
-  jobInputTitle,
-  nameInputTitle,
-  buttonSubmitTitle
+   popupUserImage,
+   popupImageSrc,
+   popupUserImageTitle,
+   bodyPreload,
+   buttonsClose,
+   buttonOpenCard,
+   popupUserCard,
+   nameInputCard,
+   jobInputCard,
+   buttonSubmitCard,
+   buttonOpenTitle,
+   popupUserTitle,
+   jobProfile,
+   nameProfile,
+   jobInputTitle,
+   nameInputTitle,
+   buttonSubmitTitle,
+   cardGrid
 };
 
 // Находим в DOM
@@ -36,6 +36,8 @@ const popupList = Array.from(document.querySelectorAll(".popup"));
 //Находим popup
 const popupUserTitle = document.querySelector(".popup_add_user-title");
 const popupUserCard = document.querySelector(".popup_add_user-card");
+//** cardGrid находит место размещения карточек */
+const cardGrid = document.querySelector(".card-grid__cards");
 /** popupUserImage находит изображение в popup карточки Класса(.popup-image)*/
 const popupUserImage = document.querySelector(".popup-image");
 //Находим кнопки открытия popup
@@ -62,18 +64,13 @@ const jobProfile = profileForm.querySelector(".profile__job");
 
 creatingCards();
 
-validationPopup();
-
 closePopupOverlay(popupList);
 
 animateBody();
 
 closuresElement();
 
-CardPopaps();
+createMethodsCard();
 
-titlePopups();
-
-console.log(popupList);
-
+createMethodsTitle();
 

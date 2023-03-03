@@ -1,36 +1,33 @@
-import {popupUserImage,popupImageSrc,popupUserImageTitle} from "../index.js"
-import {openPopup} from "../utils/utils.js";
-
+/**
+ * Класс отвечающий за создание карточки
+ *
+ * @param {Object} card объект с данными для карточки
+ * @param {string} templateSelector селектор шаблона карточки
+ */
 class Card {
-  /**
-   * Класс отвечающий за создание карточки
-   *
-   * @param {Object} card объект с данными для карточки
-   * @param {string} templateSelector селектор шаблона карточки
-   */
-  constructor(card,templateSelector ) {
-    /**
+   /**
     * Свойства карточки
     *
-    * @param {Object} _name имя карточки
-    * @param {string} _link ссылка на картинку
-    * @param {string} _alt описание картинки
-    * @param {string} _templateSelector селектор шаблона карточки
+    * @param {Object} card обыект масивов
+    * @param {string} templateSelector template элемент
+    * @param {string} handleCardClick функция клика
     */
+  constructor(card,templateSelector,handleCardClick) {
     this._name = card.name;
     this._link = card.link;
     this._alt = card.alt;
     this._templateSelector = templateSelector;
+    this._handleCardClick = handleCardClick;
   }
 
-  _getTemplate() {
-    /**
+   /**
     * Получение шаблона карточки
     *
     * @param {string} _templateSelector селектор шаблона карточки
     *
     * @return {Object} шаблон карточки
     */
+  _getTemplate() {
     return document
       .querySelector(this._templateSelector)
       .content
@@ -38,76 +35,79 @@ class Card {
       .cloneNode(true);
   }
 
-  _OpenPopupCard(element) {
-    /**
+   /**
     * Открытие попапа с картинкой
     *
     * @param {Object} element карточка
     *
     * @return {Object} шаблон карточки
     */
-    element.querySelector('.card__image-button')
-      .addEventListener("click", () => {
-        openPopup(popupUserImage);
-        popupImageSrc.src = `${this._link}`;
-        popupImageSrc.alt = `${this._alt}`;
-        popupUserImageTitle.textContent = `${this._name}`;
-      })
-  }
+   _handleImageClick() {
+      this._cardImage.querySelector('.card__image-button')
+         .addEventListener('click', () => this._handleCardClick(this._name, this._link, this._alt));
+   }
 
-  _ClickCardLike(element) {
-    /**
+   /**
     * Добавление лайка карточке
     *
     * @param {Object} element карточка
     *
     * @return {Object} шаблон карточки
     */
-    element.querySelector('.card__like')
-      .addEventListener('click', (evt) => {
-        evt.target.classList.toggle("card__like_active");
-      })
-  }
+   _toggleLike(){
+      this._cardImage.querySelector('.card__like')
+         .addEventListener('click', (evt) => {
+            evt.target.classList.toggle("card__like_active");
+         })
+   }
 
-  _RemoveCard(element) {
-    /**
+   /**
     * Удаление карточки
     *
     * @param {Object} element карточка
     *
     * @return {Object} шаблон карточки
     */
-    element.querySelector('.card__remove')
-      .addEventListener('click', () => {
-        element.remove();
-      })
-  }
+   _deleteCard() {
+      this._cardImage.querySelector('.card__remove')
+         .addEventListener('click', () => {
+            this._cardImage.remove();
+         })
+   }
 
+   /**
+    * Открытие попапа с картинкой
+    *
+    * @param {Object} element карточка
+    *
+    * @return {Object} шаблон карточки
+    */
+   _setEventListeners() {
+      this._deleteCard();
+      this._toggleLike()
+      this._handleImageClick();
+   }
 
+   /**
+    * Создание карточки
+    *
+    * @param {Object} _templateSelector селектор шаблона карточки
+    * @param {string} _name имя карточки
+    * @param {string} _link ссылка на картинку
+    * @param {string} _alt описание картинки
+    *
+    * @return {Object} шаблон карточки
+    */
   generateCard() {
-    /**
-     * Создание карточки
-     *
-     * @param {Object} _templateSelector селектор шаблона карточки
-     * @param {string} _name имя карточки
-     * @param {string} _link ссылка на картинку
-     * @param {string} _alt описание картинки
-     *
-     * @return {Object} шаблон карточки
-     */
-    const element = this._getTemplate();
-    this._OpenPopupCard(element);
-    this._ClickCardLike(element);
-    this._RemoveCard(element);
+    this._cardImage = this._getTemplate();
+    this._setEventListeners()
 
-    element.querySelector('.card__image').src = `${this._link}`;
-    element.querySelector('.card__image').alt = `${this._alt}`;
-    element.querySelector('.card__title').textContent = `${this._name}`;
+     this._cardImage.querySelector('.card__image').src = `${this._link}`;
+     this._cardImage.querySelector('.card__image').alt = `${this._alt}`;
+     this._cardImage.querySelector('.card__title').textContent = `${this._name}`;
 
-    return element;
+    return  this._cardImage;
   }
 }
-
-
 
 export default Card;

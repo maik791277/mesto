@@ -5,17 +5,16 @@ import {
    popupUserCard,
    nameInputCard,
    jobInputCard,
-   buttonSubmitCard,
    buttonOpenTitle,
    popupUserTitle,
    jobProfile,
    nameProfile,
    jobInputTitle,
    nameInputTitle,
-   buttonSubmitTitle
+   cardGrid, popupUserImage, popupImageSrc, popupUserImageTitle
 } from "../index.js";
 import Card from "../class/card.js";
-import FormValidator from "../class/validate.js";
+import FormValidator from "../class/FormValidator.js";
 import { enableValidation, initialCards } from "../arrays/ArraysCard.js";
 
 export {
@@ -25,10 +24,9 @@ export {
    closuresElement,
    openPopup,
    closePopup,
-   CardPopaps,
-   validationPopup,
+   createMethodsCard,
    creatingCards,
-   titlePopups
+   createMethodsTitle
 };
 
 
@@ -53,11 +51,21 @@ function closePopup(popupElement) {
 }
 
 /**
+ * appointValidation устанавливает
+ * валидацию на форму указанному элементу
+ * @param {*} element элемент к которому добавляю валидацию.
+ */
+function appointValidation(element) {
+   const popupCard = new FormValidator(enableValidation, element);
+   popupCard.enableValidation();
+}
+
+/**
  * кнопка esc
  */
 function handlerEscape(evt) {
-   const popupOpen = document.querySelector(".popup_opened");
    if (evt.key === "Escape") {
+      const popupOpen = document.querySelector(".popup_opened");
       closePopup(popupOpen);
    }
 }
@@ -95,26 +103,46 @@ const animateBody = () => window.addEventListener("load", function() {
    bodyPreload.classList.remove("body_preload");
 }, false);
 
-function CardPopaps() {
+/**
+ * создания новой карточки
+ * */
+function createCard(item) {
+   const card = new Card(item, "#place-card",handleCardClick);
+   const cardElement = card.generateCard();
+   return cardElement;
+}
+
+function handleCardClick(name, link, alt) {
+   popupImageSrc.src = `${link}`;
+   popupImageSrc.alt = `${alt}`;
+   popupUserImageTitle.textContent = `${name}`;
+   openPopup(popupUserImage);
+}
+
+/**
+ * Используем слушителя и этам загрузки load для того чтобы,
+ * transition работаели послек загрузки станицы
+ */
+function createMethodsCard () {
 
    buttonOpenCard.addEventListener("click", () => {
       openPopup(popupUserCard);
+      appointValidation(popupUserCard);
    });
 
    // Обработчик «отправки» формы.Card
    function addNewCard(evt) {
       evt.preventDefault();
       const valueCard = {
-         name: nameInputCard.value, link: jobInputCard.value, alt: nameInputCard.value
+         name: nameInputCard.value,
+         link: jobInputCard.value,
+         alt: nameInputCard.value
       };
 
-      const card = new Card(valueCard, "#place-card");
-      const cardElement = card.generateCard();
-      document.querySelector(".card-grid__cards").prepend(cardElement);
+      cardGrid.prepend(createCard(valueCard));
 
       closePopup(popupUserCard);
-      buttonSubmitCard.disabled = true;
-      buttonSubmitCard.classList.add("popup__button_type_error");
+      appointValidation(popupUserCard);
       evt.target.reset();
    }
 
@@ -122,11 +150,16 @@ function CardPopaps() {
    popupUserCard.addEventListener("submit", addNewCard);
 }
 
-function titlePopups() {
+/**
+ * Используем слушителя и этам загрузки load для того чтобы,
+ * transition работаели послек загрузки станицы
+ */
+function createMethodsTitle() {
    //форма Title
    // Кнопка открытия формы Title
    buttonOpenTitle.addEventListener("click", function() {
       openPopup(popupUserTitle);
+      appointValidation(popupUserTitle);
       nameInputTitle.value = nameProfile.textContent;
       jobInputTitle.value = jobProfile.textContent;
    });
@@ -139,8 +172,7 @@ function titlePopups() {
       jobProfile.textContent = jobInputTitle.value;
 
       closePopup(popupUserTitle);
-      buttonSubmitTitle.disabled = true;
-      buttonSubmitTitle.classList.add("popup__button_type_error");
+      appointValidation(popupUserTitle);
       evt.target.reset();
    }
 
@@ -148,21 +180,12 @@ function titlePopups() {
    popupUserTitle.addEventListener("submit", handleProfileFormSubmit);
 }
 
-function validationPopup() {
-   const popupUser = new FormValidator(enableValidation, ".popup_add_user-title");
-   popupUser.enableValidation();
-
-   const popupCard = new FormValidator(enableValidation, ".popup_add_user-card");
-   popupCard.enableValidation();
-}
-
+/**
+ * Используем слушителя и этам загрузки load для того чтобы,
+ * transition работаели послек загрузки станицы
+ */
 function creatingCards() {
-   initialCards.forEach((item) => {
-      const card = new Card(item, "#place-card");
-      const cardElement = card.generateCard();
-
-      document.querySelector(".card-grid__cards").append(cardElement);
-   });
+   initialCards.forEach((item) => cardGrid.append(createCard(item)));
 }
 
 
