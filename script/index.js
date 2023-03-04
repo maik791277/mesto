@@ -1,11 +1,14 @@
 import {
-  closePopupOverlay,
-  animateBody,
-  closuresElement,
+   closePopupOverlay,
+   animateBody,
+   closuresElement,
    createMethodsCard,
-  creatingCards,
-   createMethodsTitle
+   creatingCards,
+   createMethodsTitle,
+   ActiveValidatorTitle
 } from "./utils/utils.js";
+import FormValidator from "./class/FormValidator.js";
+import { enableValidation } from "./arrays/ArraysCard.js";
 
 export {
    popupUserImage,
@@ -74,3 +77,6 @@ createMethodsCard();
 
 createMethodsTitle();
 
+ActiveValidatorTitle(enableValidation,popupUserTitle)
+
+ActiveValidatorTitle(enableValidation,popupUserCard)

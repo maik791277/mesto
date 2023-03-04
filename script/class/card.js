@@ -35,6 +35,14 @@ class Card {
       .cloneNode(true);
   }
 
+  _findElementsCard() {
+     this._ButtonImgCard = this._cardImage.querySelector('.card__image-button');
+     this._Cardremove = this._cardImage.querySelector('.card__remove');
+     this._CardLike = this._cardImage.querySelector('.card__like');
+     this._CardImg = this._cardImage.querySelector('.card__image');
+     this._CardTitle = this._cardImage.querySelector('.card__title');
+  }
+
    /**
     * Открытие попапа с картинкой
     *
@@ -43,22 +51,7 @@ class Card {
     * @return {Object} шаблон карточки
     */
    _handleImageClick() {
-      this._cardImage.querySelector('.card__image-button')
-         .addEventListener('click', () => this._handleCardClick(this._name, this._link, this._alt));
-   }
-
-   /**
-    * Добавление лайка карточке
-    *
-    * @param {Object} element карточка
-    *
-    * @return {Object} шаблон карточки
-    */
-   _toggleLike(){
-      this._cardImage.querySelector('.card__like')
-         .addEventListener('click', (evt) => {
-            evt.target.classList.toggle("card__like_active");
-         })
+      this._handleCardClick(this._name, this._link, this._alt);
    }
 
    /**
@@ -69,10 +62,18 @@ class Card {
     * @return {Object} шаблон карточки
     */
    _deleteCard() {
-      this._cardImage.querySelector('.card__remove')
-         .addEventListener('click', () => {
-            this._cardImage.remove();
-         })
+      this._cardImage.remove();
+   }
+
+   /**
+    * Добавление лайка карточке
+    *
+    * @param {Object} element карточка
+    *
+    * @return {Object} шаблон карточки
+    */
+   _toggleLike(evt){
+      evt.target.classList.toggle("card__like_active");
    }
 
    /**
@@ -83,9 +84,10 @@ class Card {
     * @return {Object} шаблон карточки
     */
    _setEventListeners() {
-      this._deleteCard();
-      this._toggleLike()
-      this._handleImageClick();
+      this._ButtonImgCard.addEventListener('click', () => this._handleImageClick(),);
+      this._Cardremove.addEventListener('click', () => this._deleteCard());
+      this._CardLike.addEventListener('click', (evt) => this._toggleLike(evt));
+
    }
 
    /**
@@ -100,13 +102,13 @@ class Card {
     */
   generateCard() {
     this._cardImage = this._getTemplate();
-    this._setEventListeners()
+    this._findElementsCard();
+    this._setEventListeners();
+    this._CardImg.src = `${this._link}`;
+    this._CardImg.alt = `${this._alt}`;
+    this._CardTitle.textContent = `${this._name}`;
 
-     this._cardImage.querySelector('.card__image').src = `${this._link}`;
-     this._cardImage.querySelector('.card__image').alt = `${this._alt}`;
-     this._cardImage.querySelector('.card__title').textContent = `${this._name}`;
-
-    return  this._cardImage;
+    return this._cardImage;
   }
 }
 

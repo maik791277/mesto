@@ -8,6 +8,7 @@ class FormValidator {
     this._errorClass = settings.errorClass;
     this._errorClassVisible = settings.errorClassVisible;
     this._formElement = formElement;
+    console.log('asdasdasd')
   }
 
   _getForm() {
@@ -67,7 +68,18 @@ class FormValidator {
     errorElement.classList.remove(this._errorClassVisible);
   }
 
+  /** сделано для того чтобы при быстром нажатии на
+   * кнопку или на enter не пропускала пустые поля */
+   disablesButton() {
+     this._element = this._getForm();
+     this._setEventListeners();
+     this._buttonSubmit.disabled = true;
+     this._buttonSubmit.classList.add(this._inactiveButtonClass);
+   }
+
    resetValidation() {
+      this._element = this._getForm();
+      this._setEventListeners();
       this._inputList.forEach((item) => {
          const inputId = item.id;
          const errorElement = document.querySelector(`.${inputId}-error`);
@@ -77,24 +89,13 @@ class FormValidator {
       })
    }
 
-  /** сделано для того чтобы при быстром нажатии на
-   * кнопку или на enter не пропускала пустые поля */
-   _disablesButton(element) {
-     this._buttonSubmit.disabled = true;
-     this._buttonSubmit.classList.add(this._inactiveButtonClass);
-   }
-
-
   enableValidation() {
     this._element = this._getForm();
     this._setEventListeners();
     this._disableSubmit();
-    this.resetValidation()
     this._element.addEventListener("input", () => this._toggleButton());
     this._toggleButton();
     this._addInputListeners();
-    this._disablesButton();
-
   }
 
 }

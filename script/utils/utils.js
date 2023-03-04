@@ -11,7 +11,10 @@ import {
    nameProfile,
    jobInputTitle,
    nameInputTitle,
-   cardGrid, popupUserImage, popupImageSrc, popupUserImageTitle
+   cardGrid,
+   popupUserImage,
+   popupImageSrc,
+   popupUserImageTitle
 } from "../index.js";
 import Card from "../class/card.js";
 import FormValidator from "../class/FormValidator.js";
@@ -26,9 +29,9 @@ export {
    closePopup,
    createMethodsCard,
    creatingCards,
-   createMethodsTitle
+   createMethodsTitle,
+   ActiveValidatorTitle
 };
-
 
 /**
  * openPopup добавляет соответствующий класс к
@@ -51,15 +54,26 @@ function closePopup(popupElement) {
 }
 
 /**
- * appointValidation устанавливает
+ * ValidatorTitle устанавливает
  * валидацию на форму указанному элементу
  * @param {*} element элемент к которому добавляю валидацию.
  */
-function appointValidation(element) {
-   const popupCard = new FormValidator(enableValidation, element);
+
+
+function ActiveValidatorTitle(object,element) {
+   const popupCard = new FormValidator(object, element);
    popupCard.enableValidation();
 }
 
+function ResetValidatorTitle(object,element) {
+   const popupCard = new FormValidator(object, element);
+   popupCard.resetValidation();
+}
+
+function battonValidatorTitle(object,element) {
+   const popupCard = new FormValidator(object, element);
+   popupCard.disablesButton();
+}
 /**
  * кнопка esc
  */
@@ -107,7 +121,7 @@ const animateBody = () => window.addEventListener("load", function() {
  * создания новой карточки
  * */
 function createCard(item) {
-   const card = new Card(item, "#place-card",handleCardClick);
+   const card = new Card(item, "#place-card", handleCardClick);
    const cardElement = card.generateCard();
    return cardElement;
 }
@@ -127,7 +141,7 @@ function createMethodsCard () {
 
    buttonOpenCard.addEventListener("click", () => {
       openPopup(popupUserCard);
-      appointValidation(popupUserCard);
+      ResetValidatorTitle(enableValidation,popupUserCard)
    });
 
    // Обработчик «отправки» формы.Card
@@ -142,7 +156,7 @@ function createMethodsCard () {
       cardGrid.prepend(createCard(valueCard));
 
       closePopup(popupUserCard);
-      appointValidation(popupUserCard);
+      battonValidatorTitle(enableValidation,popupUserCard)
       evt.target.reset();
    }
 
@@ -159,7 +173,7 @@ function createMethodsTitle() {
    // Кнопка открытия формы Title
    buttonOpenTitle.addEventListener("click", function() {
       openPopup(popupUserTitle);
-      appointValidation(popupUserTitle);
+      ResetValidatorTitle(enableValidation,popupUserTitle)
       nameInputTitle.value = nameProfile.textContent;
       jobInputTitle.value = jobProfile.textContent;
    });
@@ -172,7 +186,7 @@ function createMethodsTitle() {
       jobProfile.textContent = jobInputTitle.value;
 
       closePopup(popupUserTitle);
-      appointValidation(popupUserTitle);
+      battonValidatorTitle(enableValidation,popupUserTitle)
       evt.target.reset();
    }
 
@@ -187,5 +201,6 @@ function createMethodsTitle() {
 function creatingCards() {
    initialCards.forEach((item) => cardGrid.append(createCard(item)));
 }
+
 
 
