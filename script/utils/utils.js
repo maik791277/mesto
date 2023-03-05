@@ -14,10 +14,11 @@ import {
    cardGrid,
    popupUserImage,
    popupImageSrc,
-   popupUserImageTitle
+   popupUserImageTitle,
+   popupCard,
+   popupTitle,
 } from "../index.js";
 import Card from "../class/card.js";
-import FormValidator from "../class/FormValidator.js";
 import { enableValidation, initialCards } from "../arrays/ArraysCard.js";
 
 export {
@@ -30,7 +31,6 @@ export {
    createMethodsCard,
    creatingCards,
    createMethodsTitle,
-   ActiveValidatorTitle
 };
 
 /**
@@ -53,27 +53,6 @@ function closePopup(popupElement) {
    popupElement.removeEventListener("keydown", handlerEscape);
 }
 
-/**
- * ValidatorTitle устанавливает
- * валидацию на форму указанному элементу
- * @param {*} element элемент к которому добавляю валидацию.
- */
-
-
-function ActiveValidatorTitle(object,element) {
-   const popupCard = new FormValidator(object, element);
-   popupCard.enableValidation();
-}
-
-function ResetValidatorTitle(object,element) {
-   const popupCard = new FormValidator(object, element);
-   popupCard.resetValidation();
-}
-
-function battonValidatorTitle(object,element) {
-   const popupCard = new FormValidator(object, element);
-   popupCard.disablesButton();
-}
 /**
  * кнопка esc
  */
@@ -141,7 +120,7 @@ function createMethodsCard () {
 
    buttonOpenCard.addEventListener("click", () => {
       openPopup(popupUserCard);
-      ResetValidatorTitle(enableValidation,popupUserCard)
+      popupCard.resetValidation();
    });
 
    // Обработчик «отправки» формы.Card
@@ -156,7 +135,7 @@ function createMethodsCard () {
       cardGrid.prepend(createCard(valueCard));
 
       closePopup(popupUserCard);
-      battonValidatorTitle(enableValidation,popupUserCard)
+      popupCard.disablesButton()
       evt.target.reset();
    }
 
@@ -173,7 +152,7 @@ function createMethodsTitle() {
    // Кнопка открытия формы Title
    buttonOpenTitle.addEventListener("click", function() {
       openPopup(popupUserTitle);
-      ResetValidatorTitle(enableValidation,popupUserTitle)
+      popupTitle.resetValidation();
       nameInputTitle.value = nameProfile.textContent;
       jobInputTitle.value = jobProfile.textContent;
    });
@@ -186,7 +165,7 @@ function createMethodsTitle() {
       jobProfile.textContent = jobInputTitle.value;
 
       closePopup(popupUserTitle);
-      battonValidatorTitle(enableValidation,popupUserTitle)
+      popupTitle.disablesButton()
       evt.target.reset();
    }
 

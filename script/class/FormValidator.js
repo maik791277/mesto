@@ -8,7 +8,6 @@ class FormValidator {
     this._errorClass = settings.errorClass;
     this._errorClassVisible = settings.errorClassVisible;
     this._formElement = formElement;
-    console.log('asdasdasd')
   }
 
   _getForm() {

@@ -36,11 +36,11 @@ class Card {
   }
 
   _findElementsCard() {
-     this._ButtonImgCard = this._cardImage.querySelector('.card__image-button');
-     this._Cardremove = this._cardImage.querySelector('.card__remove');
-     this._CardLike = this._cardImage.querySelector('.card__like');
-     this._CardImg = this._cardImage.querySelector('.card__image');
-     this._CardTitle = this._cardImage.querySelector('.card__title');
+     this._buttonImgCard = this._cardImage.querySelector('.card__image-button');
+     this._cardremove = this._cardImage.querySelector('.card__remove');
+     this._cardLike = this._cardImage.querySelector('.card__like');
+     this._cardImg = this._cardImage.querySelector('.card__image');
+     this._cardTitle = this._cardImage.querySelector('.card__title');
   }
 
    /**
@@ -84,10 +84,9 @@ class Card {
     * @return {Object} шаблон карточки
     */
    _setEventListeners() {
-      this._ButtonImgCard.addEventListener('click', () => this._handleImageClick(),);
-      this._Cardremove.addEventListener('click', () => this._deleteCard());
-      this._CardLike.addEventListener('click', (evt) => this._toggleLike(evt));
-
+      this._buttonImgCard.addEventListener('click', () => this._handleImageClick(),);
+      this._cardremove.addEventListener('click', () => this._deleteCard());
+      this._cardLike.addEventListener('click', (evt) => this._toggleLike(evt));
    }
 
    /**
@@ -104,9 +103,9 @@ class Card {
     this._cardImage = this._getTemplate();
     this._findElementsCard();
     this._setEventListeners();
-    this._CardImg.src = `${this._link}`;
-    this._CardImg.alt = `${this._alt}`;
-    this._CardTitle.textContent = `${this._name}`;
+    this._cardImg.src = `${this._link}`;
+    this._cardImg.alt = `${this._alt}`;
+    this._cardTitle.textContent = `${this._name}`;
 
     return this._cardImage;
   }

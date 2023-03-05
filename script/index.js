@@ -5,10 +5,10 @@ import {
    createMethodsCard,
    creatingCards,
    createMethodsTitle,
-   ActiveValidatorTitle
 } from "./utils/utils.js";
 import FormValidator from "./class/FormValidator.js";
 import { enableValidation } from "./arrays/ArraysCard.js";
+
 
 export {
    popupUserImage,
@@ -28,7 +28,9 @@ export {
    jobInputTitle,
    nameInputTitle,
    buttonSubmitTitle,
-   cardGrid
+   cardGrid,
+   popupCard,
+   popupTitle
 };
 
 // Находим в DOM
@@ -64,6 +66,11 @@ const jobInputTitle = popupUserTitle.querySelector(".popup__input_field_job");
 const nameProfile = profileForm.querySelector(".profile__name");
 const jobProfile = profileForm.querySelector(".profile__job");
 
+const popupCard = new FormValidator(enableValidation, popupUserCard);
+popupCard.enableValidation();
+
+const popupTitle = new FormValidator(enableValidation, popupUserTitle);
+popupTitle.enableValidation();
 
 creatingCards();
 
@@ -76,7 +83,3 @@ closuresElement();
 createMethodsCard();
 
 createMethodsTitle();
-
-ActiveValidatorTitle(enableValidation,popupUserTitle)
-
-ActiveValidatorTitle(enableValidation,popupUserCard)
