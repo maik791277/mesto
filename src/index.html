@@ -7,22 +7,21 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="author" content="Владислав Потылицын">
   <title>Mesto</title>
-  <link rel="stylesheet" href="pages/index.css">
 </head>
 
 <body class="body body_preload">
   <div class="page">
     <header class="header">
-      <img class="header__logo" src="images/Mesto.svg" alt="Логотип Mesto">
+      <img class="header__logo" src="<%=require('./images/Mesto.svg')%>" alt="Логотип Mesto">
     </header>
 
     <main class="content">
       <section class="profile">
-        <img class="profile__avatar" src="./images/image.png" alt="Аватарка">
+        <img class="profile__avatar" src="<%=require('./images/sinimatiocpro.png')%>" alt="Аватарка">
         <div class="profile__info">
           <div class="profile__info-content">
-            <h1 class="profile__name">Жак-Ив Кусто</h1>
-            <p class="profile__job">Исследователь океана</p>
+            <h1 class="profile__name">Потылицын Влад</h1>
+            <p class="profile__job">Мир это ты в представление себя</p>
           </div>
           <button class="profile__edit-button" type="button"></button>
         </div>
@@ -49,13 +48,13 @@
       <h2 class="popup__title">Редактировать профиль</h2>
 
       <label class="popup__field">
-        <input class="popup__input popup__input_field_name" type="text" name="profile-name" id="profile-name-input"
+        <input class="popup__input popup__input_field_name" type="text" name="profileName" id="profile-name-input"
           required minlength="2" maxlength="40" placeholder="Имя фамилия" value="">
         <span class="popup__input-error profile-name-input-error"></span>
       </label>
 
       <label class="popup__field">
-        <input class="popup__input popup__input_field_job" type="text" name="profile-job" id="profile-job-input"
+        <input class="popup__input popup__input_field_job" type="text" name="profileJob" id="profile-job-input"
           required minlength="2" maxlength="200" placeholder="Кем работаете" value="">
         <span class="popup__input-error profile-job-input-error"></span>
       </label>
@@ -72,13 +71,13 @@
       <h2 class="popup__title">Новое место</h2>
 
       <label class="popup__field">
-        <input class="popup__input popup__input_field_name" type="text" name="card-name" id="card-name-input" required
+        <input class="popup__input popup__input_field_name" type="text" name="cardName" id="card-name-input" required
           minlength="2" maxlength="30" placeholder="Название" value="">
         <span class="popup__input-error card-name-input-error"></span>
       </label>
 
       <label class="popup__field">
-        <input class="popup__input popup__input_field_job" type="url" name="card-job" id="card-job-input" required
+        <input class="popup__input popup__input_field_job" type="url" name="cardLink" id="card-job-input" required
           placeholder="Ссылка на картинку" value="">
         <span class="popup__input-error card-job-input-error"></span>
       </label>
@@ -110,7 +109,5 @@
     </li>
   </template>
 
-
-  <script type="module" src="script/index.js" defer></script>
 </body>
 </html>

@@ -13,7 +13,6 @@ class FormValidator {
   _getForm() {
     const form = this._formElement
        .querySelector(this._formSelector);
-
     return form;
   }
 
@@ -24,7 +23,7 @@ class FormValidator {
 
   _disableSubmit() {
      this._element.addEventListener("submit",(evt) => {
-      evt.preventDefault();
+      this.disablesButton()
     })
   }
 
@@ -91,17 +90,13 @@ class FormValidator {
   enableValidation() {
     this._element = this._getForm();
     this._setEventListeners();
-    this._disableSubmit();
     this._element.addEventListener("input", () => this._toggleButton());
     this._toggleButton();
+    this._disableSubmit();
     this._addInputListeners();
   }
 
 }
-
-
-
-
 
 export default FormValidator;
 

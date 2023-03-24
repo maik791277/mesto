@@ -1,10 +1,12 @@
+
+
 /**
  * Класс отвечающий за создание карточки
  *
  * @param {Object} card объект с данными для карточки
  * @param {string} templateSelector селектор шаблона карточки
  */
-class Card {
+export default class Card {
    /**
     * Свойства карточки
     *
@@ -12,12 +14,12 @@ class Card {
     * @param {string} templateSelector template элемент
     * @param {string} handleCardClick функция клика
     */
-  constructor(card,templateSelector,handleCardClick) {
+  constructor({card,handleCardClick}, templateSelector) {
     this._name = card.name;
     this._link = card.link;
-    this._alt = card.alt;
-    this._templateSelector = templateSelector;
+    this._alt = card.name;
     this._handleCardClick = handleCardClick;
+    this._templateSelector = templateSelector;
   }
 
    /**
@@ -68,9 +70,9 @@ class Card {
    /**
     * Добавление лайка карточке
     *
-    * @param {Object} element карточка
     *
     * @return {Object} шаблон карточки
+    * @param evt
     */
    _toggleLike(evt){
       evt.target.classList.toggle("card__like_active");
@@ -110,5 +112,3 @@ class Card {
     return this._cardImage;
   }
 }
-
-export default Card;
