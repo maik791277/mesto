@@ -60,37 +60,21 @@ export const selectorsUserForm = {
 }
 
 export const cardGrid = '.card-grid__cards';
-export const plaseCard = '#place-card';
+export const cardPlace = '#place-card';
+// Находим поля формы Image
+export const popupImageSrc = ".popup-image__image";
+export const popupUserImageTitle = ".popup-image__title";
 export const popupImages = document.querySelector('.popup-image');
 // Находим в DOM
 export const profileForm = document.querySelector(".profile");
 export const bodyPreload = document.querySelector(".body");
-// Масив всех popup
-export const popupList = Array.from(document.querySelectorAll(".popup"));
 //Находим popup
 export const popupUserTitle = document.querySelector(".popup_add_user-title");
 export const popupUserCard = document.querySelector(".popup_add_user-card");
-//** cardGrid находит место размещения карточек */
-
-/** popupUserImage находит изображение в popup карточки Класса(.popup-image)*/
-export const popupUserImage = document.querySelector(".popup-image");
 //Находим кнопки открытия popup
 export const buttonOpenCard = profileForm.querySelector(".profile__add-button");
 export const buttonOpenTitle = profileForm.querySelector(".profile__edit-button");
-// находим все крестики проекта по универсальному селектору
-export const buttonsClose = document.querySelectorAll(".popup__close-button");
-//Находим кнопки submit popup
-export const buttonSubmitCard = popupUserCard.querySelector(".popup__button");
-export const buttonSubmitTitle = popupUserTitle.querySelector(".popup__button");
-// Находим поля формы Card
-export const nameInputCard = popupUserCard.querySelector(".popup__input_field_name");
-export const jobInputCard = popupUserCard.querySelector(".popup__input_field_job");
-// Находим поля формы Image
-export const popupImageSrc = document.querySelector(".popup-image__image");
-export const popupUserImageTitle = document.querySelector(".popup-image__title");
 // Находим поля формы Title
 export const nameInputTitle = popupUserTitle.querySelector(".popup__input_field_name");
 export const jobInputTitle = popupUserTitle.querySelector(".popup__input_field_job");
-// Находим текстовых полейю.
-export const nameProfile = profileForm.querySelector(".profile__name");
-export const jobProfile = profileForm.querySelector(".profile__job");
+

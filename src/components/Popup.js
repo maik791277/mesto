@@ -1,7 +1,8 @@
 export default class Popup {
-   constructor(selector) {
-      this._selector = selector;
-      this._closebitopn = this._selector.querySelector('.popup__close-button')
+   constructor(props) {
+      this._props  = props;
+      this._closebitopn = this._props.querySelector('.popup__close-button');
+      this._handleEscClose = this._handleEscClose.bind(this);
    }
 
    /**
@@ -9,8 +10,8 @@ export default class Popup {
     * указанному элементу и добавляет обработчик клавиатуры (handlerEscape)
     * */
    open() {
-      this.setEventListeners();
-      this._selector.classList.add("popup_opened");
+      this._props.classList.add("popup_opened");
+      document.addEventListener('keydown', this._handleEscClose);
    }
 
    /**
@@ -18,9 +19,8 @@ export default class Popup {
     * указанному элементу и удаляет обработчик клавиатуры (handlerEscape)
     */
    close() {
-      this._selector.classList.remove("popup_opened");
-      document.removeEventListener("keydown", this._handleEscClose.bind(this))
-      this._selector.removeEventListener("mousedown", this._handleOverlayClose.bind(this));
+      this._props.classList.remove("popup_opened");
+      document.removeEventListener("keydown", this._handleEscClose);
    }
 
    /**
@@ -28,7 +28,7 @@ export default class Popup {
     */
    _handleEscClose(evt) {
       if (evt.key === "Escape") {
-         this.close()
+         this.close();
       }
    }
 
@@ -47,7 +47,6 @@ export default class Popup {
     * */
    setEventListeners() {
       this._closebitopn.addEventListener("click", this.close.bind(this));
-      document.addEventListener("keydown",this._handleEscClose.bind(this))
-      this._selector.addEventListener("mousedown", this._handleOverlayClose.bind(this));
+      this._props.addEventListener("mousedown", this._handleOverlayClose.bind(this));
    }
 }
