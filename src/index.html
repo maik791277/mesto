@@ -17,11 +17,14 @@
 
     <main class="content">
       <section class="profile">
-        <img class="profile__avatar" src="<%=require('./images/sinimatiocpro.png')%>" alt="Аватарка">
+        <div>
+          <button class="profile__avatar-button" type="button"></button>
+          <img  class="profile__avatar" src="<%=require('./images/avatar-business-human-svgrepo-com.svg')%>" alt="Аватарка">
+        </div>
         <div class="profile__info">
           <div class="profile__info-content">
-            <h1 class="profile__name">Потылицын Влад</h1>
-            <p class="profile__job">Мир это ты в представление себя</p>
+            <h1 class="profile__name">Имя пользователя</h1>
+            <p class="profile__job">Информация о пользователе</p>
           </div>
           <button class="profile__edit-button" type="button"></button>
         </div>
@@ -71,18 +74,35 @@
       <h2 class="popup__title">Новое место</h2>
 
       <label class="popup__field">
-        <input class="popup__input popup__input_field_name" type="text" name="cardName" id="card-name-input" required
+        <input class="popup__input popup__input_field_name" type="text" name="name" id="card-name-input" required
           minlength="2" maxlength="30" placeholder="Название" value="">
         <span class="popup__input-error card-name-input-error"></span>
       </label>
 
       <label class="popup__field">
-        <input class="popup__input popup__input_field_job" type="url" name="cardLink" id="card-job-input" required
+        <input class="popup__input popup__input_field_job" type="url" name="link" id="card-job-input" required
           placeholder="Ссылка на картинку" value="">
         <span class="popup__input-error card-job-input-error"></span>
       </label>
 
       <button class="popup__button popup__button_type_error" type="submit">Сохранить</button>
+    </form>
+  </section>
+
+  <section class="popup popup-image-user ">
+    <form class="popup__form popup__form_image-user" name="popup-image-user" novalidate>
+
+      <button class="popup__close-button" type="button"></button>
+      <h2 class="popup__title">Обновить аватар</h2>
+
+      <label class="popup__field">
+        <input class="popup__input popup__input_field_job" type="url" name="link" id="input-image-user" required
+               placeholder="Ссылка на картинку" value="">
+        <span class="popup__input-error input-image-user-error"></span>
+      </label>
+
+      <button class="popup__button popup__button_type_error" type="submit">Сохранить</button>
+
     </form>
   </section>
 
@@ -94,6 +114,13 @@
     </div>
   </section>
 
+  <section class="popup popup-delete">
+    <form class="popup__form popup__form_popup-delete">
+      <button class="popup__close-button" type="button"></button>
+      <h2 class="popup__title">Вы уверены?</h2>
+      <button class="popup__button asdddd" type="submit">Да</button>
+    </form>
+  </section>
 
   <template id="place-card">
     <li class="card">
@@ -103,7 +130,10 @@
       </div>
       <div class="card__info">
         <h2 class="card__title"></h2>
-        <button class="card__like" type="button"></button>
+        <div class="card__container-like">
+          <button class="card__like" type="button"></button>
+          <div class="card__like-counter"></div>
+        </div>
       </div>
       <button class="card__remove" type="button"></button>
     </li>

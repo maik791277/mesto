@@ -1,5 +1,3 @@
-
-
 /**
  * Класс отвечающий за создание карточки
  *
@@ -13,19 +11,46 @@ export default class Card {
     * @param {Object} card обыект масивов
     * @param {string} templateSelector template элемент
     * @param {string} handleCardClick функция клика
+    * @param {string} handelDeleteClick функция клика удаления
+    * @param {string} handelLikeClick функция клика лайка
+    * @param meId
+    * @param counter
+    * @param idLike
     */
-  constructor({card,handleCardClick}, templateSelector) {
+  constructor({card,handleCardClick,handelDeleteClick, handelLikeClick}, templateSelector, meId, counter, idLike) {
     this._name = card.name;
     this._link = card.link;
     this._alt = card.name;
     this._handleCardClick = handleCardClick;
     this._templateSelector = templateSelector;
+    this._handelDeleteClick = handelDeleteClick;
+    this._handelLikeClick = handelLikeClick;
+    this._meId = meId;
+    this._counter = counter;
+    this._idLike = idLike
   }
+
+   getCardLakeCounter(like) {
+     this.cardLikeCounter.textContent = like;
+  }
+
+   getCardLakeActivate() {
+     this._idLike.forEach((item) => {
+        if (item._id === "db15443b0b61b3c83bc18626"){
+           this._cardLike.classList.add("card__like_active")
+        }
+     })
+  }
+
+   _getButtonDelete() {
+      if (this._meId === "db15443b0b61b3c83bc18626") {
+      }else {
+         this._cardremove.remove()
+      }
+   }
 
    /**
     * Получение шаблона карточки
-    *
-    * @param {string} _templateSelector селектор шаблона карточки
     *
     * @return {Object} шаблон карточки
     */
@@ -43,6 +68,7 @@ export default class Card {
      this._cardLike = this._cardImage.querySelector('.card__like');
      this._cardImg = this._cardImage.querySelector('.card__image');
      this._cardTitle = this._cardImage.querySelector('.card__title');
+     this.cardLikeCounter =this._cardImage.querySelector('.card__like-counter')
   }
 
    /**
@@ -64,7 +90,7 @@ export default class Card {
     * @return {Object} шаблон карточки
     */
    _deleteCard() {
-      this._cardImage.remove();
+      this._handelDeleteClick(this._cardImage)
    }
 
    /**
@@ -75,7 +101,7 @@ export default class Card {
     * @param evt
     */
    _toggleLike(evt){
-      evt.target.classList.toggle("card__like_active");
+      this._handelLikeClick(evt)
    }
 
    /**
@@ -108,6 +134,10 @@ export default class Card {
     this._cardImg.src = `${this._link}`;
     this._cardImg.alt = `${this._alt}`;
     this._cardTitle.textContent = `${this._name}`;
+
+    this.getCardLakeCounter(this._counter);
+    this._getButtonDelete();
+    this.getCardLakeActivate();
 
     return this._cardImage;
   }

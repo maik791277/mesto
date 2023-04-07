@@ -11,19 +11,19 @@ class FormValidator {
   }
 
   _getForm() {
-    const form = this._formElement
-       .querySelector(this._formSelector);
-    return form;
+     return this._formElement
+    .querySelector(this._formSelector);
   }
 
    _setEventListeners() {
       this._buttonSubmit = this._element.querySelector(this._popup__button);
       this._inputList = Array.from(this._element.querySelectorAll(this._inputSelector));
+
    }
 
   _disableSubmit() {
      this._element.addEventListener("submit",(evt) => {
-      this.disablesButton()
+      this._disablesButtonDom()
     })
   }
 
@@ -71,11 +71,17 @@ class FormValidator {
    disablesButton() {
      this._element = this._getForm();
      this._setEventListeners();
-     this._buttonSubmit.disabled = true;
+     this._disablesButtonDom()
      this._buttonSubmit.classList.add(this._inactiveButtonClass);
    }
 
+   _disablesButtonDom() {
+      this._buttonSubmit.disabled = true;
+   }
+
+
    resetValidation() {
+      this.disablesButton()
       this._element = this._getForm();
       this._setEventListeners();
       this._inputList.forEach((item) => {
