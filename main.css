@@ -7,7 +7,7 @@
 .content{margin:auto}@media (min-width:280px) and (max-width:960px){.content{margin:0 19px}}
 .profile{display:flex;margin-bottom:45px;margin-top:40px;position:relative}@media (min-width:280px) and (max-width:720px){.profile{align-items:center;flex-direction:column;margin-bottom:36px}}
 .profile__avatar-button{background:url(images/Vector.93c771f5f8582261951d.png) 50% no-repeat;border:0;border-radius:50%;height:120px;opacity:0;position:absolute;transition:all .3s ease-in-out;width:120px}.profile__avatar-button:hover{background-color:rgba(0,0,0,.8);opacity:1}
-.profile__avatar{border-radius:50%;height:120px;-o-object-fit:cover;object-fit:cover;width:120px}
+.profile__avatar{background-color:#fff;border-radius:50%;height:120px;-o-object-fit:cover;object-fit:cover;width:120px}
 .profile__info{display:flex;margin-bottom:25px;margin-left:30px;margin-top:21px}@media (min-width:280px) and (max-width:600px){.profile__info{margin-bottom:34px;margin-left:0;margin-top:27px}}
 @media (min-width:280px) and (max-width:720px){.profile__info-content{align-items:center;display:flex;flex-direction:column;text-align:center}}
 .profile__name{color:#fff;font-size:42px;font-weight:500;line-height:48px;margin:0 0 9px;max-width:400px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}@media (min-width:720px) and (max-width:800px){.profile__name{max-width:300px}}@media (min-width:280px) and (max-width:600px){.profile__name{font-size:27px;font-weight:500;line-height:33px;margin-left:28px;max-width:200px;white-space:normal}}
