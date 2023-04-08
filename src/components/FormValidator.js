@@ -70,7 +70,6 @@ class FormValidator {
    * кнопку или на enter не пропускала пустые поля */
    disablesButton() {
      this._element = this._getForm();
-     this._setEventListeners();
      this._disablesButtonDom()
      this._buttonSubmit.classList.add(this._inactiveButtonClass);
    }

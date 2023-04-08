@@ -16,17 +16,27 @@ import {
    popupUserCard,
    popupUserImageTitle,
    popupUserTitle,
-   selectorsUserForm, popupUserImage, buttonOpenUserImage,
+   selectorsUserForm, popupUserImage, buttonOpenUserImage, popupDeleteCard,
 } from "../utils/constants.js";
-import {animateBody, api, createCard, renderLoading} from "../utils/utils.js";
+import {animateBody, api, createCard,} from "../utils/utils.js";
 import "./index.css";
 
 animateBody();
 
-const popupWithCard = new PopupWithImage(popupImages, popupImageSrc, popupUserImageTitle)
 
-api.getInitialCards()
-.then(data => {
+
+/**
+ * @type {UserInfo}
+ *
+ * обеспечивает работу popup
+ * добавляет контент в input,
+ * создаёт объект для отправки в DOM.
+ */
+const infoUser = new UserInfo(selectorsUserForm)
+
+Promise.all([api.getInitialCards(), api.getUserInformation()])
+.then(([cards, userData]) => {
+
    /**
     *
     * @type {Section}
@@ -35,13 +45,23 @@ api.getInitialCards()
     * Card-Подставление данные из объекта в темплейт тэг html,
     * PopupWithImage- создаёт для кажной карточки открывающий popup с изображением и текстом.
     */
-   const CardCreatDom = new Section({
-      item: data,
+   const cardCreatDom = new Section({
+      item: cards,
       renderer: (item) => {
-         CardCreatDom.addItemAppend(createCard(item, popupWithCard, cardPlace, item._id, item.owner._id, item.likes.length, item.likes))
+         cardCreatDom.addItemAppend(createCard(item, popupWithCard, cardPlace, item._id, item.owner._id, item.likes.length, item.likes, userData._id))
       }
    }, cardGrid)
-   CardCreatDom.renderer()
+   cardCreatDom.renderer()
+
+   /**
+    * Запрос на добавление информации пользователя
+    */
+   const dataValueTitle = {
+      inputName: userData.name,
+      inputAbut: userData.about,
+   }
+   infoUser.setUserInfo(dataValueTitle)
+   infoUser.setUserImage(userData.avatar)
 
    /**
     *
@@ -54,16 +74,12 @@ api.getInitialCards()
     */
    const initializationPopupCard = new PopupWithForm(popupUserCard, {
       submitForms: (data) => {
-         renderLoading(true, popupUserCard);
-         api.createCard(data)
+
+         return api.createCard(data)
          .then((card) => {
-            CardCreatDom.addItemPrepend(createCard(card, popupWithCard, cardPlace, card._id, card.owner._id, card.likes.length, card.likes))
+            cardCreatDom.addItemPrepend(createCard(card, popupWithCard, cardPlace, card._id, card.owner._id, card.likes.length, card.likes, userData._id))
          })
          .catch((err) => alert(err))
-         .finally(() => {
-            renderLoading(false, popupUserCard)
-            initializationPopupCard.close()
-         })
       }
    },)
    initializationPopupCard.setEventListeners();
@@ -85,13 +101,10 @@ api.getInitialCards()
 .catch((err) => alert(err))
 
 /**
- * @type {UserInfo}
- *
- * обеспечивает работу popup
- * добавляет контент в input,
- * создаёт объект для отправки в DOM.
+ * popupWithCard это попапа карточки с текстом и картинкой
  */
-const infoUser = new UserInfo(selectorsUserForm)
+const popupWithCard = new PopupWithImage(popupImages, popupImageSrc, popupUserImageTitle)
+popupWithCard.setEventListeners()
 
 /**
  *
@@ -103,24 +116,19 @@ const infoUser = new UserInfo(selectorsUserForm)
  */
 const initializationPopupTitle = new PopupWithForm(popupUserTitle, {
    submitForms: (item) => {
-      renderLoading(true, popupUserTitle);
       const dataValueTitle = {
-         inputName: item.profileName,
-         inputAbut: item.profileJob
+         inputName: item.name,
+         inputAbut: item.aboutUser
       }
       const serverData = {
-         name: item.profileName,
-         about: item.profileJob
+         name: item.name,
+         about: item.aboutUser
       }
-      api.createUserInformation(serverData)
+      return api.createUserInformation(serverData)
       .then(() => {
          infoUser.setUserInfo(dataValueTitle)
       })
       .catch((err) => alert(err))
-      .finally(() => {
-         renderLoading(false, popupUserTitle)
-         initializationPopupTitle.close()
-      })
    }
 })
 initializationPopupTitle.setEventListeners();
@@ -131,9 +139,7 @@ initializationPopupTitle.setEventListeners();
 buttonOpenTitle.addEventListener('click', () => {
    initializationPopupTitle.open();
    validatorPopupTitle.resetValidation()
-   const dataPageElement = infoUser.getUserInfo()
-   nameInputTitle.value = dataPageElement.name;
-   jobInputTitle.value = dataPageElement.aboutUser;
+   initializationPopupTitle.setInputValues(infoUser.getUserInfo())
 })
 
 /**
@@ -141,20 +147,6 @@ buttonOpenTitle.addEventListener('click', () => {
  */
 const validatorPopupTitle = new FormValidator(enableValidation, popupUserTitle);
 validatorPopupTitle.enableValidation();
-
-/**
- * Запрос на добавление информации пользователя
- */
-api.getUserInformation()
-.then(data => {
-   const dataValueTitle = {
-      inputName: data.name,
-      inputAbut: data.about,
-   }
-   infoUser.setUserInfo(dataValueTitle)
-   infoUser.setUserImage(data.avatar)
-})
-.catch((err) => alert(err))
 
 /**
  *
@@ -166,19 +158,15 @@ api.getUserInformation()
  */
 const initializationPopupUserImage = new PopupWithForm(popupUserImage, {
    submitForms: (item) => {
-      renderLoading(true, popupUserImage);
+
       const dataValueTitle = {
          avatar: item.link,
       }
-      api.createUserImage(dataValueTitle)
+     return api.createUserImage(dataValueTitle)
       .then(data => {
          infoUser.setUserImage(data.avatar)
       })
       .catch((err) => alert(err))
-      .finally(() => {
-         renderLoading(false, popupUserImage)
-         initializationPopupUserImage.close()
-      })
    }
 })
 initializationPopupUserImage.setEventListeners();

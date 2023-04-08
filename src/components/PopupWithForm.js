@@ -7,6 +7,8 @@ export default class PopupWithForm extends Popup{
 
       this._popupForm = this._props.querySelector('.popup__form')
       this._inputList = this._popupForm.querySelectorAll('.popup__input')
+      this._submitButton = this._popupForm.querySelector('.popup__button')
+
    }
 
    close() {
@@ -23,13 +25,26 @@ export default class PopupWithForm extends Popup{
       return this._formsValues;
    }
 
+   setInputValues(data) {
+      this._inputList.forEach((input) => {
+         input.value = data[input.name];
+      });
+   }
 
    setEventListeners() {
       super.setEventListeners();
-      this._popupForm.addEventListener('submit',(evt) => {
 
+      this._popupForm.addEventListener('submit', (evt) => {
          evt.preventDefault();
-         this._submitForms(this._getInputValues());
+         // перед запросом сохраняем изначальный текст кнопки
+         const initialText = this._submitButton.textContent;
+         // меняем его, чтобы показать пользователю ожидание
+         this._submitButton.textContent = 'Сохранение...';
+         this._submitForms(this._getInputValues())
+         .then(() => this.close()) // закрывается попап в `then`
+         .finally(() => {
+            this._submitButton.textContent = initialText;
+         }) // в любом случае меняется текст кнопки обратно на начальный в `finally`
       });
    }
 }

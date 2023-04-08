@@ -16,8 +16,9 @@ export default class Card {
     * @param meId
     * @param counter
     * @param idLike
+    * @param userId
     */
-  constructor({card,handleCardClick,handelDeleteClick, handelLikeClick}, templateSelector, meId, counter, idLike) {
+  constructor({card,handleCardClick,handelDeleteClick, handelLikeClick}, templateSelector, meId, counter, idLike, userId) {
     this._name = card.name;
     this._link = card.link;
     this._alt = card.name;
@@ -27,7 +28,8 @@ export default class Card {
     this._handelLikeClick = handelLikeClick;
     this._meId = meId;
     this._counter = counter;
-    this._idLike = idLike
+    this._idLike = idLike;
+    this._userId = userId
   }
 
    getCardLakeCounter(like) {
@@ -36,14 +38,14 @@ export default class Card {
 
    getCardLakeActivate() {
      this._idLike.forEach((item) => {
-        if (item._id === "db15443b0b61b3c83bc18626"){
+        if (item._id === this._userId){
            this._cardLike.classList.add("card__like_active")
         }
      })
   }
 
    _getButtonDelete() {
-      if (this._meId === "db15443b0b61b3c83bc18626") {
+      if (this._meId === this._userId) {
       }else {
          this._cardremove.remove()
       }

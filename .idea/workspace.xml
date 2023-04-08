@@ -5,31 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dca2869d-9a7c-416f-baa4-072dce9cc4c8" name="Changes" comment="Mesto - правка">
-      <change afterPath="$PROJECT_DIR$/src/blocks/card/__container-like/card__container-like.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/blocks/card/__like-counter/card__like-counter.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/blocks/popup-delete/__container/popup-delete__container.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/blocks/popup-delete/popup-delete.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/blocks/popup/__form/_image-user/popup__form_image-user.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/blocks/popup/__form/_popup-delete/popup__form_popup-delete.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/blocks/profile/__avatar-button/profile__avatar-button.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Api.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/PopupDeleteCard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Vector.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/avatar-business-human-svgrepo-com.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blocks/profile/__avatar/profile__avatar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/profile/__avatar/profile__avatar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Card.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Card.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/FormValidator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormValidator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PopupDeleteCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PopupDeleteCard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/PopupWithForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PopupWithForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Section.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Section.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UserInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserInfo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/constants.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -167,7 +150,8 @@
       <workItem from="1680687809690" duration="13866000" />
       <workItem from="1680776759463" duration="25437000" />
       <workItem from="1680832322810" duration="146000" />
-      <workItem from="1680861374796" duration="22280000" />
+      <workItem from="1680861374796" duration="24902000" />
+      <workItem from="1680949998588" duration="11090000" />
     </task>
     <task id="LOCAL-00001" summary="Mesto - правка">
       <created>1676396810465</created>
