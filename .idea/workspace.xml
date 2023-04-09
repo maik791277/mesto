@@ -6,14 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="dca2869d-9a7c-416f-baa4-072dce9cc4c8" name="Changes" comment="Mesto - правка">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Card.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Card.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/blocks/popup/__form/popup__form.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/popup/__form/popup__form.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/FormValidator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormValidator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PopupDeleteCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PopupDeleteCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PopupWithForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PopupWithForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +145,8 @@
       <workItem from="1680776759463" duration="25437000" />
       <workItem from="1680832322810" duration="146000" />
       <workItem from="1680861374796" duration="24902000" />
-      <workItem from="1680949998588" duration="11090000" />
+      <workItem from="1680949998588" duration="11164000" />
+      <workItem from="1681004720442" duration="343000" />
     </task>
     <task id="LOCAL-00001" summary="Mesto - правка">
       <created>1676396810465</created>

@@ -82,7 +82,6 @@ class FormValidator {
    resetValidation() {
       this.disablesButton()
       this._element = this._getForm();
-      this._setEventListeners();
       this._inputList.forEach((item) => {
          const inputId = item.id;
          const errorElement = document.querySelector(`.${inputId}-error`);
